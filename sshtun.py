@@ -26,6 +26,13 @@ class sshtunhelper:
 	def clonetunnelcb(self, sender):
 		return
 
+	def popwin(self, sender):
+		win = rumps.Window('computer\'s IP address:port number','Server address',
+			default_text="",cancel=True,dimensions=(320,20))
+		response = win.run()
+		print response
+		return
+
 	def timerb(self, sender):
 		# call respawner
 		# respawner will return a list of tunnels it COULD NOT AND WILL NOT RESTART ANYMORE
@@ -79,16 +86,13 @@ class sshtun(rumps.App):
 		self.menu['Tunnels'][name].add(m)
 		m = rumps.MenuItem("Delete tunnel...", self.helper.deletetunnelcb)
 		self.menu['Tunnels'][name].add(m)
-
+		m = rumps.MenuItem("pop tunnel...", self.helper.popwin)
+		self.menu['Tunnels'][name].add(m)
 
 		return
 
 	def starttimer(self):
 		self.timer.start()
-
-#	@rumps.clicked("Tunnels")
-#	def quit(self, _):
-#		rumps.quit_application()
 
 	@rumps.clicked("Quit")
 	def quit(self, _):
