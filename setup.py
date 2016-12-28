@@ -8,8 +8,13 @@ Usage:
 from setuptools import setup
 
 APP = ['sshtun.py']
-DATA_FILES = []
-OPTIONS = {'argv_emulation': True}
+DATA_FILES = ['sshpass']
+OPTIONS = {
+    'argv_emulation': True,
+    'plist': {
+        'LSUIElement': True
+    }
+}
 
 setup(
     app=APP,

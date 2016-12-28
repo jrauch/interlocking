@@ -1,9 +1,12 @@
 import rumps
 import manager
 import AppKit
+import os
+
 info = AppKit.NSBundle.mainBundle().infoDictionary()
 info["LSBackgroundOnly"] = "1"
-
+os.environ["SSH_ASKPASS"] = os.getcwd()+"/sshpass"
+os.system("echo $PWD > /tmp/en")
 class sshtunhelper:
 	def __init__(self, menu, mgr, tries):
 		self.manager = mgr

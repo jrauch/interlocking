@@ -1,0 +1,14 @@
+#!/usr/bin/env osascript
+
+on run argv
+    set args to argv as text
+    set foreground to name of (info for (path to frontmost application))
+    tell application "SystemUIServer"
+        set pinresult to display dialog args default answer "" with hidden answer with icon stop giving up after 60 
+        if button returned of pinresult is "OK" then
+            return text returned of pinresult
+        else
+            error
+        end if
+    end tell
+end run
