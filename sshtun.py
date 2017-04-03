@@ -2,11 +2,14 @@ import rumps
 import manager
 import AppKit
 import os
+from multiprocessing import Process
+import threading
+import time
 
 info = AppKit.NSBundle.mainBundle().infoDictionary()
 info["LSBackgroundOnly"] = "1"
 os.environ["SSH_ASKPASS"] = os.getcwd()+"/sshpass"
-os.system("echo $PWD > /tmp/en")
+    
 class sshtunhelper:
 	def __init__(self, menu, mgr, tries):
 		self.manager = mgr
@@ -41,7 +44,7 @@ class sshtunhelper:
 		# respawner will return a list of tunnels it COULD NOT AND WILL NOT RESTART ANYMORE
 		# as well as reaped tunnels not set to restart.
 		# get all tunnel states, and adjust the check marks to correspond
-		#print "TICK"
+		print "TICK"
 		message = ""
 		s = self.manager.respawner()
 		if len(s["restartfails"]) > 0:
@@ -70,13 +73,17 @@ class sshtunhelper:
 			return # popup
 		return
 
+
 class sshtun(rumps.App):
 	def __init__(self, m, ic="noun_32768.png", qb=None):
 		super(sshtun, self).__init__("sshtun", icon=ic, quit_button = qb)
 		self.menu = ["Tunnels", "Create New Tunnel..."]
 		self.manager = m
 		self.helper = sshtunhelper(self.menu, self.manager, tries = 3) # TRIES SHOULD NOT BE HARDCODED XXX
-		self.timer = rumps.Timer(self.helper.timerb, 5)
+	#	self.timer = rumps.Timer(self.helper.timerb, 5)
+
+	def add_timer_thread(self, p):
+		self.p=p
 
 	def addtunnelitem(self, parent, name, state):
 		#sthelper = sshtunhelper(self.manager)
@@ -96,11 +103,17 @@ class sshtun(rumps.App):
 
 	def starttimer(self):
 		self.timer.start()
-
+        
 	@rumps.clicked("Quit")
 	def quit(self, _):
 		self.manager.shutdown_tunnels()
+		#self.p.terminate()
 		rumps.quit_application()
+
+def timerloop(helper, cycletime=10):
+	while True:
+		time.sleep(cycletime) # change this to a timeout on a queue wait
+		helper.timerb(None)
 
 if __name__ == "__main__":
 	m=manager.Tunnelmanager()
@@ -108,6 +121,10 @@ if __name__ == "__main__":
 	# list
 	for tun in m.list_tunnels():
 		smenu.addtunnelitem("Tunnels", tun, 1 if m.is_running(tun) == True else 0)
+	#p = Process(target=timerloop, args=[smenu.helper])
+	p = threading.Thread(target=timerloop, args=[smenu.helper])
+	smenu.add_timer_thread(p)
+	p.start()
 
-	smenu.starttimer()
+	#smenu.starttimer()
 	smenu.run()
