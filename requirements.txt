@@ -25,7 +25,7 @@ pyobjc-framework-CoreData==3.1.1
 pyobjc-framework-CoreLocation==3.1.1
 pyobjc-framework-CoreText==3.1.1
 pyobjc-framework-CoreWLAN==3.1.1
-pyobjc-framework-CryptoTokenKit==3.1.1
+pyobjc-framework-CryptoTokenKit==6.2.1
 pyobjc-framework-DictionaryServices==3.1.1
 pyobjc-framework-DiskArbitration==3.1.1
 pyobjc-framework-EventKit==3.1.1
