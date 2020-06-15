@@ -11,7 +11,7 @@ pyobjc-framework-AppleScriptKit==3.1.1
 pyobjc-framework-AppleScriptObjC==3.1.1
 pyobjc-framework-ApplicationServices==3.1.1
 pyobjc-framework-Automator==3.1.1
-pyobjc-framework-AVFoundation==3.1.1
+pyobjc-framework-AVFoundation==6.2.1
 pyobjc-framework-AVKit==3.1.1
 pyobjc-framework-CalendarStore==3.1.1
 pyobjc-framework-CFNetwork==3.1.1
