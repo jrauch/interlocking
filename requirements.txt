@@ -33,7 +33,7 @@ pyobjc-framework-ExceptionHandling==3.1.1
 pyobjc-framework-FinderSync==3.1.1
 pyobjc-framework-FSEvents==3.1.1
 pyobjc-framework-GameCenter==3.1.1
-pyobjc-framework-GameController==3.1.1
+pyobjc-framework-GameController==7.0
 pyobjc-framework-ImageCaptureCore==3.1.1
 pyobjc-framework-IMServicePlugIn==3.1.1
 pyobjc-framework-InputMethodKit==3.1.1
