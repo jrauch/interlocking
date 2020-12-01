@@ -44,7 +44,7 @@ pyobjc-framework-LaunchServices==3.1.1
 pyobjc-framework-LocalAuthentication==3.1.1
 pyobjc-framework-MapKit==3.1.1
 pyobjc-framework-MediaAccessibility==3.1.1
-pyobjc-framework-MediaLibrary==3.1.1
+pyobjc-framework-MediaLibrary==7.0.1
 pyobjc-framework-MultipeerConnectivity==3.1.1
 pyobjc-framework-NetFS==3.1.1
 pyobjc-framework-NotificationCenter==3.1.1
