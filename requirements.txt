@@ -22,7 +22,7 @@ pyobjc-framework-Contacts==3.1.1
 pyobjc-framework-ContactsUI==3.1.1
 pyobjc-framework-CoreBluetooth==3.1.1
 pyobjc-framework-CoreData==3.1.1
-pyobjc-framework-CoreLocation==3.1.1
+pyobjc-framework-CoreLocation==7.2
 pyobjc-framework-CoreText==3.1.1
 pyobjc-framework-CoreWLAN==3.1.1
 pyobjc-framework-CryptoTokenKit==3.1.1
