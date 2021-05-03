@@ -56,7 +56,7 @@ pyobjc-framework-PubSub==3.1.1
 pyobjc-framework-QTKit==3.1.1
 pyobjc-framework-Quartz==3.1.1
 pyobjc-framework-SceneKit==3.1.1
-pyobjc-framework-ScreenSaver==3.1.1
+pyobjc-framework-ScreenSaver==7.2
 pyobjc-framework-ScriptingBridge==3.1.1
 pyobjc-framework-SearchKit==3.1.1
 pyobjc-framework-ServiceManagement==3.1.1
