@@ -30,7 +30,7 @@ pyobjc-framework-DictionaryServices==3.1.1
 pyobjc-framework-DiskArbitration==3.1.1
 pyobjc-framework-EventKit==3.1.1
 pyobjc-framework-ExceptionHandling==3.1.1
-pyobjc-framework-FinderSync==3.1.1
+pyobjc-framework-FinderSync==7.3
 pyobjc-framework-FSEvents==3.1.1
 pyobjc-framework-GameCenter==3.1.1
 pyobjc-framework-GameController==3.1.1
